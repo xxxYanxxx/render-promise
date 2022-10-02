@@ -1,0 +1,30 @@
+{
+  "name": "render-promise",
+  "version": "1.0.0",
+  "description": "一个可以把任何Element特殊渲染的包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xxxYanxxx/render-promise.git"
+  },
+  "keywords": [
+    "react",
+    "promise"
+  ],
+  "author": "Baiqie xxxYanxxx PerCy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xxxYanxxx/render-promise/issues"
+  },
+  "homepage": "https://github.com/xxxYanxxx/render-promise#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^18.0.6"
+  }
+}

@@ -5,16 +5,19 @@ function renderPromise<InnerProps extends Record<string, any>>(
   InnerComponent: React.ComponentType<InnerProps>,
   name: string,
 ) {
-  return function (record?: InnerProps) {
+  type RecordProps = Omit<InnerProps, 'onOk' | 'onClose'>;
+
+  return function (props?: RecordProps) {
     let render: Render | null = new Render(name);
 
     type PromiseResolveType = Parameters<InnerProps['onOk']>[0];
 
     return new Promise<PromiseResolveType>((resolve, reject) => {
-      const props = (record ?? {}) as InnerProps;
+      const _props = (props ?? {}) as InnerProps;
+
       const el = (
         <InnerComponent
-          {...props}
+          {..._props}
           onOk={(res: any) => {
             render!.unmountComponentAtNode();
             render = null;

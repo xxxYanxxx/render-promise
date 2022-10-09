@@ -22,18 +22,21 @@ class Render {
   }
 
   remove() {
-    document.body.removeChild(this.div!);
+    if (!this.div) return;
+    document.body.removeChild(this.div);
     this.div = null;
   }
 
   show() {
+    if (!this.div) return;
     this.hidden = false;
-    if (this.div) this.div.style.display = '';
+    this.div.style.display = '';
   }
 
   hide() {
+    if (!this.div) return;
     this.hidden = true;
-    if (this.div) this.div.style.display = 'none';
+    this.div.style.display = 'none';
   }
 
   render(element: JSX.Element) {
@@ -41,11 +44,10 @@ class Render {
     ReactDom.render(element, this.div);
   }
 
-  unmountComponentAtNode(){
-    ReactDom.unmountComponentAtNode(this.div!)
+  unmountComponentAtNode() {
+    ReactDom.unmountComponentAtNode(this.div!);
     this.remove();
   }
-
 }
 
 export default Render;

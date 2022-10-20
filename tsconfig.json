@@ -2,20 +2,20 @@
   "compilerOptions": {
     "jsx": "react",
 
-    "target": "es5",
+    "target": "ES5",
 
     "module": "commonjs",
 
     "declaration": true,
     "esModuleInterop": true,
     
-    "forceConsistentCasingInFileNames": true,
+    // "forceConsistentCasingInFileNames": true,
     
     "strict": true,
     "outDir": "./lib",
-    "lib": ["ES6"],
+    "lib": ["ES6","DOM"],
 
-    "skipLibCheck": true
+    // "skipLibCheck": true
   },
   "include": ["./src"],
   "exclude": ["node_modules","**/__test__/*"]

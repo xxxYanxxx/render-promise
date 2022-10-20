@@ -21,12 +21,10 @@
     "url": "https://github.com/xxxYanxxx/render-promise/issues"
   },
   "homepage": "https://github.com/xxxYanxxx/render-promise#readme",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "devDependencies": {
     "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^4.8.4"
   }
 }

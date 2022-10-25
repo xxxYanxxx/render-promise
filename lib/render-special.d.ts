@@ -1,9 +1,14 @@
 /// <reference types="react" />
+export interface Options {
+    beforeCreate: () => void;
+    created: () => void;
+}
 declare class Render {
     private name;
     private div;
     private hidden;
-    constructor(name: string);
+    private options?;
+    constructor(name: string, options?: Options);
     create(): void;
     remove(): void;
     show(): void;

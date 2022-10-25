@@ -1,17 +1,26 @@
 import ReactDom from 'react-dom';
 
+export interface Options {
+  beforeCreate: () => void;
+  created: () => void;
+}
 class Render {
   private name: string;
   private div: HTMLDivElement | null;
   private hidden: boolean;
+  private options?: Options;
 
-  constructor(name: string) {
+  constructor(name: string, options?: Options) {
     this.name = name;
     this.div = null;
     this.hidden = false;
+
+    this.options = options;
   }
 
   create() {
+    if (this.options?.beforeCreate) this.options?.beforeCreate();
+
     this.div = document.createElement('div');
     this.div.setAttribute('tool-element', this.name);
 
@@ -19,6 +28,8 @@ class Render {
 
     if (this.hidden) this.div.style.display = 'none';
     else this.div.style.display = '';
+
+    if (this.options?.created) this.options?.created();
   }
 
   remove() {
@@ -51,3 +62,4 @@ class Render {
 }
 
 export default Render;
+

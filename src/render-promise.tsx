@@ -1,14 +1,15 @@
 import React from 'react';
-import Render from './render-special';
+import Render, { Options } from './render-special';
 
 function renderPromise<InnerProps extends Record<string, any>>(
   InnerComponent: React.ComponentType<InnerProps>,
   name: string,
+  options?: Options,
 ) {
   type RecordProps = Omit<InnerProps, 'onOk' | 'onClose'>;
 
   return function (props?: RecordProps) {
-    let render: Render | null = new Render(name);
+    let render: Render | null = new Render(name, options);
 
     type PromiseResolveType = Parameters<InnerProps['onOk']>[0];
 
@@ -36,3 +37,4 @@ function renderPromise<InnerProps extends Record<string, any>>(
 }
 
 export default renderPromise;
+

@@ -1,5 +1,5 @@
-import Render from './src/render-special';
-import renderPromise from './src/render-promise';
+import Render from './lib/render-special';
+import renderPromise from './lib/render-promise';
 
 export default renderPromise;
 export { Render };

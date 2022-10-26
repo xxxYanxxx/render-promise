@@ -6,11 +6,11 @@ function renderPromise<InnerProps extends Record<string, any>>(
   name: string,
   options?: Options,
 ) {
+  let render: Render | null = new Render(name, options);
+
   type RecordProps = Omit<InnerProps, 'onOk' | 'onClose'>;
 
   return function (props?: RecordProps) {
-    let render: Render | null = new Render(name, options);
-
     type PromiseResolveType = Parameters<InnerProps['onOk']>[0];
 
     return new Promise<PromiseResolveType>((resolve, reject) => {
@@ -20,12 +20,12 @@ function renderPromise<InnerProps extends Record<string, any>>(
         <InnerComponent
           {..._props}
           onOk={(res: any) => {
-            render!.unmountComponentAtNode();
+            render?.unmountComponentAtNode();
             render = null;
             resolve(res);
           }}
           onClose={(err: any) => {
-            render!.unmountComponentAtNode();
+            render?.unmountComponentAtNode();
             render = null;
             reject(err);
           }}

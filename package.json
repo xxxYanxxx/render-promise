@@ -1,7 +1,7 @@
 {
   "name": "render-promise",
   "version": "1.1.0",
-  "description": "一个可以把任何Element特殊渲染的包",
+  "description": "命令式渲染元素，再也不用维护n个visible啦！！！",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {

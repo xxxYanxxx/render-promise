@@ -1,6 +1,6 @@
 {
   "name": "render-promise",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "命令式渲染元素，再也不用维护n个visible啦！！！",
   "main": "index.js",
   "types": "index.d.ts",
